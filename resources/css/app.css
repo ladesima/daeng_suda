@@ -1,0 +1,103 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/* @vite(['resources/css/app.css', 'resources/css/front-sectors.css']) */
+/* ====== COMPONENTS (komponen siap pakai) ====== */
+@layer components {
+  /* tombol */
+  .btn { @apply inline-flex items-center gap-2 px-4 py-2 rounded-md text-sm font-medium; }
+  .btn-primary { @apply bg-emerald-600 text-white hover:bg-emerald-700 shadow-sm; }
+  .btn-white { @apply bg-white text-slate-900 border border-white/20 hover:bg-slate-100; }
+  .btn-soft { @apply bg-white text-slate-700 border border-slate-200 hover:bg-slate-50; }
+  .btn-outline { @apply inline-flex items-center gap-2 px-3 py-2 rounded-md text-sm border border-slate-300 text-slate-700 hover:bg-slate-100; }
+  .btn-lg { @apply inline-flex items-center gap-2 px-6 py-3 rounded-lg font-semibold text-sm shadow-md transition; }
+
+  /* navbar links (pill) */
+  .nav-pill { @apply inline-flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-medium text-slate-700 hover:bg-emerald-50 hover:text-emerald-800 transition; }
+  .nav-pill-active { @apply bg-emerald-100 text-emerald-900 ring-1 ring-emerald-200; }
+  .nav-icon { @apply h-4 w-4 text-slate-600; }
+
+  /* link biasa */
+  .nav-link { @apply px-3 py-2 rounded-md text-sm text-slate-700 hover:text-slate-900 hover:bg-slate-100; }
+  .link { @apply text-slate-600 hover:text-slate-900 hover:underline; }
+  .footer-link { @apply text-slate-100 hover:text-white hover:underline; }
+
+  /* kartu umum */
+  .card { @apply bg-white border border-slate-200 rounded-xl p-4; }
+
+  /* metric */
+  .metric-box { @apply flex items-center gap-4 bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-4; }
+  .metric-icon { @apply flex items-center justify-center h-12 w-12 rounded-lg; }
+  .metric-value { @apply text-2xl font-bold text-white; }
+  .metric-label { @apply text-sm text-white/90; }
+
+  /* slider controls */
+  .slider-btn { @apply absolute top-1/2 -translate-y-1/2 grid place-items-center h-9 w-9 rounded-full bg-white/80 hover:bg-white shadow ring-1 ring-white/50 text-slate-700 transition; }
+  .slider-dot { @apply h-3 w-3 rounded-full ring-1 ring-white/60 transition; }
+  .slider-dot-active { @apply bg-white; }
+  .slider-dot-inactive { @apply bg-white/40 hover:bg-white/70; }
+  .sector-card {
+    @apply bg-white border border-slate-200 rounded-xl p-4 hover:shadow-md hover:border-emerald-200 transition;
+  }
+  .sector-chip {
+  @apply inline-grid place-items-center h-8 w-8 rounded-md ring-1 ring-slate-200;
+}
+  .sector-title {
+    @apply font-semibold text-slate-900;
+  }
+  .sector-desc {
+    @apply text-sm text-slate-500;
+  }
+  .sector-value {
+    @apply text-emerald-700 font-extrabold text-xl md:text-2xl;
+  }
+  .sector-unit {
+    @apply text-sm font-semibold pl-1;
+  }
+  .chev {
+    @apply text-slate-400;
+  }
+    .btn-ghost {
+    @apply inline-flex items-center gap-1 px-3 py-2 rounded-md text-sm font-medium
+           bg-white hover:bg-slate-50 text-slate-700 border border-slate-200 shadow-sm;
+  }
+
+  /* Card berita (background putih, bayangan lembut) */
+  .news-card {
+    @apply bg-white rounded-xl p-4 border border-slate-200 shadow-sm
+           hover:shadow-md hover:border-emerald-200 transition;
+  }
+  .news-badge {
+    @apply inline-flex items-center px-2 py-0.5 rounded-md text-xs font-semibold ring-1 ring-inset;
+  }
+  .news-meta {
+    @apply inline-flex items-center text-xs text-slate-500;
+  }
+  .news-title {
+    @apply font-semibold text-slate-900 leading-snug;
+  }
+  .news-excerpt {
+    @apply mt-1 text-sm text-slate-600 line-clamp-3;
+  }
+  
+}
+
+/* ====== UTILITIES (helper kecil & layout) ====== */
+@layer utilities {
+  .bg-hero {
+    background-image: url("https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=1600&auto=format&fit=crop");
+    background-size: cover;
+    background-position: center;
+  }
+
+  .metric-card { @apply bg-white/20 backdrop-blur border border-white/30 rounded-xl p-4; }
+  .metric-number { @apply text-3xl font-extrabold text-white; }
+  .metric-label { @apply text-sm text-white/90; }
+
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}

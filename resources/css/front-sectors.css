@@ -1,0 +1,148 @@
+/* =========================
+   front-sectors.css (SCOPED)
+   Semua selector diawali .front-sectors agar tidak mengganggu navbar/layout lain
+   ========================= */
+
+/* ---- Theme tokens ---- */
+.front-sectors {
+  --c-bg:#ffffff;
+  --c-card:#ffffff;
+  --c-border:#e5e7eb;   /* slate-200 */
+  --c-text:#0f172a;     /* slate-900 */
+  --c-sub:#475569;      /* slate-600 */
+  --c-soft:#f1f5f9;     /* slate-100 */
+
+  --c-emerald:#059669;
+  --c-emerald-700:#047857;
+  --c-sky:#0284c7;
+
+  --shadow-sm: 0 1px 2px rgba(15,23,42,.04), 0 8px 24px rgba(15,23,42,.06);
+  --shadow-lg: 0 2px 6px rgba(15,23,42,.05), 0 16px 32px rgba(15,23,42,.08);
+  --radius:16px;
+}
+
+@media (prefers-color-scheme: dark) {
+  .front-sectors {
+    --c-bg:#0b1220;
+    --c-card:#0f172a;
+    --c-border:#1f2937;
+    --c-text:#e5e7eb;
+    --c-sub:#9aa4b2;
+    --c-soft:#0b1624;
+    --shadow-sm: 0 1px 2px rgba(0,0,0,.35), 0 12px 28px rgba(0,0,0,.35);
+    --shadow-lg: 0 2px 6px rgba(0,0,0,.35), 0 18px 36px rgba(0,0,0,.45);
+  }
+}
+
+/* ---- Grid ---- */
+.front-sectors .front-grid{ display:grid; gap:20px; }
+@media (min-width:640px){ .front-sectors .front-grid{ grid-template-columns:repeat(2,minmax(0,1fr)); } }
+@media (min-width:1024px){ .front-sectors .front-grid{ grid-template-columns:repeat(3,minmax(0,1fr)); } }
+
+/* ---- Section headings ---- */
+.front-sectors .section-head{ margin-bottom:12px }
+.front-sectors .section-head h2{ font:800 20px/1.2 system-ui; margin:0; color:var(--c-text) }
+.front-sectors .section-sub{ color:var(--c-sub); font-size:14px }
+
+/* ---- Home-like card ---- */
+.front-sectors .homecard{
+  background:var(--c-card);
+  border:1px solid var(--c-border);
+  border-radius:var(--radius);
+  padding:18px 20px;
+  box-shadow:var(--shadow-sm);
+  transition:box-shadow .2s ease, border-color .2s ease, transform .12s ease;
+}
+.front-sectors .homecard:hover{
+  box-shadow:var(--shadow-lg);
+  border-color:#cde7ff33; /* halus di dark mode juga */
+  transform:translateY(-1px);
+}
+
+/* header */
+.front-sectors .homecard-head{ display:flex; align-items:flex-start; gap:12px; position:relative; }
+.front-sectors .homecard-icon{
+  width:40px; height:40px; border-radius:12px;
+  display:grid; place-items:center; font-size:20px;
+  background:#ecfdf5; border:1px solid #d1fae5; color:#065f46;
+}
+.front-sectors .homecard-icon.sky{ background:#e0f2fe; border-color:#bae6fd; color:#0c4a6e; }
+
+.front-sectors .homecard-title{ font-size:18px; font-weight:800; margin:0; color:var(--c-text); }
+.front-sectors .homecard-title a{ color:inherit; text-decoration:none; }
+.front-sectors .homecard-title a:hover{ text-decoration:underline; }
+.front-sectors .homecard-sub{ margin:.15rem 0 .4rem; color:var(--c-sub); font-size:14px; }
+
+/* badge (jumlah desa / jumlah data) */
+.front-sectors .homecard-badge{
+  margin-left:auto; white-space:nowrap;
+  padding:.22rem .6rem; border-radius:999px;
+  background:var(--c-soft); color:var(--c-text);
+  border:1px solid var(--c-border); font:600 12px/1.2 system-ui;
+}
+.front-sectors .homecard-badge.sky{ background:#e0f2fe; border-color:#bae6fd; color:#0c4a6e; }
+
+/* list angka mini (opsional) */
+.front-sectors .homecard-list{ margin:.4rem 0 0; padding-left:0; list-style:none; }
+.front-sectors .homecard-list li{ color:#334155; font-size:14px; padding:3px 0; }
+.front-sectors .homecard-list b{ font-weight:800; color:var(--c-text); }
+
+/* ---- Badge kecil / chip umum ---- */
+.front-sectors .fs-badge{
+  display:inline-flex; align-items:center; gap:.4rem;
+  background:var(--c-soft);
+  color:#334155; font-size:.72rem; font-weight:600;
+  padding:.3rem .55rem; border-radius:999px; border:1px solid var(--c-border);
+}
+.front-sectors .fs-badge svg{ width:14px; height:14px }
+
+/* ---- Buttons ---- */
+.front-sectors .fs-btn{
+  display:inline-flex; align-items:center; gap:.45rem;
+  font:700 .78rem/1 system-ui;
+  border-radius:10px; padding:.52rem .8rem;
+  border:1px solid transparent; cursor:pointer;
+  transition: background .2s ease, color .2s ease, border-color .2s ease, transform .12s ease;
+}
+.front-sectors .fs-btn:active{ transform:translateY(1px); }
+.front-sectors .fs-btn-primary{ background:var(--c-emerald); color:#fff; }
+.front-sectors .fs-btn-primary:hover{ background:var(--c-emerald-700); }
+.front-sectors .fs-btn-ghost{ background:transparent; border-color:var(--c-border); color:var(--c-text); }
+.front-sectors .fs-btn-ghost:hover{ background:var(--c-soft); }
+
+/* ---- Pagination (wrap links() dgn .fs-pagination) ---- */
+.front-sectors .fs-pagination{ display:flex; gap:.5rem; align-items:center; justify-content:flex-end; }
+.front-sectors .fs-pagination a,
+.front-sectors .fs-pagination span{
+  min-width:36px; height:36px; display:grid; place-items:center;
+  border-radius:10px; border:1px solid var(--c-border);
+  background:var(--c-card); color:var(--c-text);
+  font:600 .85rem/1 system-ui;
+  transition: background .2s ease, color .2s ease, border-color .2s ease;
+}
+.front-sectors .fs-pagination a:hover{ background:var(--c-soft); }
+.front-sectors .fs-pagination .active,
+.front-sectors .fs-pagination .active > *{
+  background:var(--c-emerald); color:#fff; border-color:transparent;
+}
+
+/* ---- Utilities ---- */
+.front-sectors .line-clamp-2{
+  display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden;
+}
+.front-sectors a:focus-visible, .front-sectors .fs-btn:focus-visible{
+  outline:3px solid rgba(2,132,199,.35); outline-offset:2px;
+}
+
+/* ---- HTMX transition area (pakai di elemen yang di-swap) ---- */
+.front-sectors .htmx-swapping{ opacity:0; transform:translateX(-12px); transition:opacity .22s ease, transform .22s ease; }
+.front-sectors .htmx-added{ animation:fs-slide-in .26s ease-out both; }
+@keyframes fs-slide-in{ from{opacity:0; transform:translateX(12px)} to{opacity:1; transform:none} }
+
+/* ---- Reduce motion ---- */
+@media (prefers-reduced-motion: reduce) {
+  .front-sectors .htmx-added,
+  .front-sectors .htmx-swapping,
+  .front-sectors .homecard,
+  .front-sectors .fs-btn { transition:none !important; animation:none !important; }
+}
